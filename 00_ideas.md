@@ -116,7 +116,7 @@ La aplicación ofrece información orientativa y lo indica de forma explícita. 
 - El rendimiento de un primer modelo por clase, para confirmar qué imperfecciones pueden incluirse en el MVP.
 - La disponibilidad de GPU (Kaggle o Google Colab), ya que el entrenamiento de modelos de detección no es viable en CPU.
 
-**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 5–8 personas que compran productos de cuidado facial, preguntando por su última compra: cómo eligieron el producto, qué información usaron y si quedaron satisfechas. De esta forma, comprobaremos si el problema existe y si es relevante para el usuario. Más adelante, cuando la aplicación esté disponible, haremos una prueba de usabilidad para comprobar si los usuarios entienden el resultado y si la recomendación les ayuda a decidir.
+**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 10-12 personas que compran productos de cuidado facial, preguntando por su última compra: cómo eligieron el producto, qué información usaron y si quedaron satisfechas. De esta forma, comprobaremos si el problema existe y si es relevante para el usuario. Más adelante, cuando la aplicación esté disponible, haremos una prueba de usabilidad para comprobar si los usuarios entienden el resultado y si la recomendación les ayuda a decidir.
 
 **Riesgos identificados.**
 
