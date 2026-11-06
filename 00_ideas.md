@@ -26,7 +26,7 @@
 | **Problema** | No saben interpretar las imperfecciones de su piel ni qué cuidado elegir | Combinar los intereses y presupuestos de todos lleva mucho tiempo y genera desacuerdos | |
 | **Producto** | Aplicación web que detecta imperfecciones faciales en una foto y da recomendaciones de cuidado | Aplicación web que genera un itinerario equilibrado según las preferencias del grupo | |
 | **Datos principales** | Imágenes faciales con imperfecciones anotadas (Roboflow, ACNE04) | OpenStreetMap, Inside Airbnb, Open-Meteo, Wikivoyage | |
-| **Estado de los datos** | Parcialmente confirmado | Hipótesis (fuentes abiertas sin descarga de prueba) | |
+| **Estado fuente de los datos** | Validado | Hipótesis (fuentes abiertas sin descarga de prueba) | |
 | **Principal riesgo** | Datos desbalanceados y de varias fuentes; fiabilidad de la detección | Diferenciación frente a asistentes de IA generales | |
 
 ---
