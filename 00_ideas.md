@@ -9,12 +9,12 @@
 
 | Integrante | Usuario de GitHub |
 |---|---|
-| Leslie Mosquera | [@usuario](https://github.com/usuario) |
-| Nombre Apellido | [@usuario](https://github.com/usuario) |
-| Nombre Apellido | [@usuario](https://github.com/usuario) |
-| Nombre Apellido | [@usuario](https://github.com/usuario) |
+| Leslie Mosquera | [@lesliemosquera96-netizen](https://github.com/lesliemosquera96-netizen ) |
+| Carlos Apellido | [@usuario](https://github.com/usuario) |
+| Antonio Apellido | [@usuario](https://github.com/usuario) |
 
-**Organización del equipo.** Todos los integrantes participarán en todas las fases del proyecto y conocerán el producto completo. Para cada actividad se asignará una persona responsable de coordinar la entrega y revisar que la documentación del repositorio esté actualizada. *[Completar con el reparto inicial, si ya está acordado.]*
+
+**Organización del equipo.** Todos los integrantes participarán en todas las fases del proyecto y conocerán el producto completo. Para cada actividad se asignará una persona responsable de coordinar la entrega y revisar que la documentación del repositorio esté actualizada. 
 
 ---
 
