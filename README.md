@@ -11,8 +11,8 @@ Repositorio del proyecto transversal, que constituye nuestro Trabajo Final de MÃ
 | Integrante | Usuario de GitHub |
 |---|---|
 | Leslie Mosquera | [@lesliemosquera96-netizen ](https://github.com/lesliemosquera96-netizen ) |
-| Carlos Apellido | [@usuario](https://github.com/usuario) |
-| Antonio Apellido | [@usuario](https://github.com/usuario) |
+| Carlos  | [@hijonario](https://github.com/hijonario) |
+| Antonio | [@usuario](https://github.com/AntorioH) |
 
 ## Entregas
 
