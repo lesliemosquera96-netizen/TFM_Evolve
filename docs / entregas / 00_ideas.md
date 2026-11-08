@@ -9,25 +9,24 @@
 
 | Integrante | Usuario de GitHub |
 |---|---|
-| Leslie Mosquera | [@lesliemosquera96-netizen](https://github.com/lesliemosquera96-netizen ) |
-| Carlos Apellido | [@usuario](https://github.com/usuario) |
-| Antonio Apellido | [@usuario](https://github.com/usuario) |
+| Leslie Mosquera | [@lesliemosquera96-netizen](https://github.com/lesliemosquera96-netizen) |
+| Carlos | [@hijonario](https://github.com/hijonario) |
+| Antonio | [@AntorioH](https://github.com/AntorioH) |
 
-
-**Organización del equipo.** Todos los integrantes participarán en todas las fases del proyecto y conocerán el producto completo. Para cada actividad se asignará una persona responsable de coordinar la entrega y revisar que la documentación del repositorio esté actualizada. 
+**Organización del equipo.** Todos los integrantes participarán en todas las fases del proyecto y conocerán el producto completo. Para cada actividad se asignará una persona responsable de coordinar la entrega y revisar que la documentación del repositorio esté actualizada.
 
 ---
 
 ## 2. Resumen de las propuestas
 
-| | Idea 1. DermaVision | Idea 2. TripMatch | Idea 3. *[Nombre]* |
+| | Idea 1. DermaVision | Idea 2. App para gestionar un viaje con IA | Idea 3. Optimización energética y mantenimiento predictivo |
 |---|---|---|---|
-| **Usuario** | Adultos que compran productos de cuidado facial sin saber qué necesita su piel | Organizador de una escapada de 2 a 4 días para un grupo de amigos | |
-| **Problema** | No saben interpretar las imperfecciones de su piel ni qué cuidado elegir | Combinar los intereses y presupuestos de todos lleva mucho tiempo y genera desacuerdos | |
-| **Producto** | Aplicación web que detecta imperfecciones faciales en una foto y da recomendaciones de cuidado | Aplicación web que genera un itinerario equilibrado según las preferencias del grupo | |
-| **Datos principales** | Imágenes faciales con imperfecciones anotadas (Roboflow, ACNE04) | OpenStreetMap, Inside Airbnb, Open-Meteo, Wikivoyage | |
-| **Estado fuente de los datos** | Validado | Hipótesis (fuentes abiertas sin descarga de prueba) | |
-| **Principal riesgo** | Datos desbalanceados y de varias fuentes; fiabilidad de la detección | Diferenciación frente a asistentes de IA generales | |
+| **Usuario** | Adultos que compran productos de cuidado facial sin saber qué necesita su piel | Personas que organizan un viaje individual o en grupo | Ingenieros de planta y personal de mantenimiento industrial |
+| **Problema** | No saben interpretar las imperfecciones de su piel ni qué cuidado elegir | La información está repartida en muchas herramientas y combinar los gustos del grupo lleva mucho tiempo | Las lecturas de los sensores no se aprovechan y las ineficiencias y fallos se detectan tarde |
+| **Producto** | Aplicación web que detecta imperfecciones faciales en una foto y da recomendaciones de cuidado | Aplicación en la que la IA genera y adapta un plan de viaje completo conversando con el usuario | Plataforma con predicción de consumo, detección de anomalías, asistente RAG y cuadros de mando |
+| **Datos principales** | Imágenes faciales con imperfecciones anotadas (Roboflow, ACNE04) | Google Maps o Mapbox, Open-Meteo, APIs turísticas, guías de viaje | Steel Industry Energy Consumption (UCI) y manuales de mantenimiento |
+| **Estado de los datos** | Parcialmente confirmado | Hipótesis (APIs sin probar) | Confirmado (dataset principal); manuales por seleccionar |
+| **Principal riesgo** | Datos desbalanceados y de varias fuentes; fiabilidad de la detección | Acceso a precios y disponibilidad reales mediante APIs externas | Validar las anomalías sin registros de fallos reales |
 
 ---
 
@@ -116,7 +115,7 @@ La aplicación ofrece información orientativa y lo indica de forma explícita. 
 - El rendimiento de un primer modelo por clase, para confirmar qué imperfecciones pueden incluirse en el MVP.
 - La disponibilidad de GPU (Kaggle o Google Colab), ya que el entrenamiento de modelos de detección no es viable en CPU.
 
-**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 10-12 personas que compran productos de cuidado facial, preguntando por su última compra: cómo eligieron el producto, qué información usaron y si quedaron satisfechas. De esta forma, comprobaremos si el problema existe y si es relevante para el usuario. Más adelante, cuando la aplicación esté disponible, haremos una prueba de usabilidad para comprobar si los usuarios entienden el resultado y si la recomendación les ayuda a decidir.
+**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 5–8 personas que compran productos de cuidado facial, preguntando por su última compra: cómo eligieron el producto, qué información usaron y si quedaron satisfechas. De esta forma, comprobaremos si el problema existe y si es relevante para el usuario. Más adelante, cuando la aplicación esté disponible, haremos una prueba de usabilidad para comprobar si los usuarios entienden el resultado y si la recomendación les ayuda a decidir.
 
 **Riesgos identificados.**
 
@@ -131,168 +130,180 @@ La aplicación ofrece información orientativa y lo indica de forma explícita. 
 
 ---
 
-## 4. Idea 2. TripMatch: planificador de escapadas en grupo según las preferencias de todos
+## 4. Idea 2. App para gestionar un viaje con IA
 
 ### 4.1 Título y descripción
 
-TripMatch es una aplicación web que ayuda a un grupo de amigos a planificar una escapada de pocos días a una ciudad. Cada participante indica sus intereses, su presupuesto y el ritmo de viaje que prefiere. A partir de esta información, el sistema propone un itinerario por días que equilibra los gustos de todos, estima el coste del alojamiento por zona y adapta las actividades a la previsión meteorológica.
+Aplicación para organizar viajes individuales o en grupo. El usuario introduce sus preferencias en lenguaje natural y la IA genera una propuesta de viaje completa: ruta organizada por días, lugares y actividades, alojamientos, opciones de transporte, previsión meteorológica, estimación del presupuesto, restaurantes y alternativas si llueve o cambia algún plan. El usuario puede modificar toda la planificación conversando con la IA, y en los viajes en grupo cada participante dispone de un espacio compartido para proponer, votar y repartir gastos.
 
 ### 4.2 Problema y usuario
 
-**Usuario.** La persona que organiza una escapada de 2 a 4 días a una ciudad para un grupo de 3 a 6 amigos.
+**Usuario.** Personas que organizan un viaje, de forma individual o para un grupo de amigos o familiares.
 
-**Necesidad.** Proponer un plan que encaje con los intereses y el presupuesto de todos, sin dedicar horas a buscar información y a poner de acuerdo al grupo.
+**Necesidad.** Planificar un viaje completo (ruta, actividades, alojamiento, transporte y presupuesto) que se ajuste a sus intereses y, en el caso de los grupos, a los gustos de todos los participantes.
 
-**Solución actual.** El organizador busca información en blogs, Google Maps y plataformas de alojamiento, y la reúne en una hoja de cálculo o en notas. Las decisiones se toman en el chat del grupo, donde las opiniones se mezclan y se pierden. Algunos usan asistentes generales como ChatGPT para generar un itinerario, pero este no tiene en cuenta las preferencias individuales de cada miembro del grupo.
+**Solución actual.** El viajero busca información en blogs, buscadores de vuelos y hoteles, Google Maps y páginas de previsión meteorológica, y la reúne en notas o en una hoja de cálculo. En los viajes en grupo, las decisiones se toman en el chat, y los gastos se reparten a mano o con otra aplicación distinta.
 
-**Dificultad.** Cada persona tiene intereses y presupuestos distintos, y el organizador no tiene una forma sencilla de combinarlos. Como resultado, el plan suele reflejar los gustos de quien organiza o de quien más participa en el chat, y la planificación se alarga.
+**Dificultad.** La información está repartida en muchas herramientas, y organizar un viaje lleva muchas horas. Además, cuando cambia algo (el tiempo, un horario o el presupuesto), hay que rehacer parte de la planificación. En los grupos se añade otra dificultad: combinar los intereses de personas que quieren cosas distintas y llevar el control de lo que ha pagado cada uno.
 
-**Mejora propuesta.** Recoger las preferencias de cada participante de forma estructurada y generar automáticamente una propuesta equilibrada, con una estimación de coste y alternativas según el tiempo.
+**Mejora propuesta.** Una sola aplicación en la que la IA genera el plan completo a partir de las preferencias, lo adapta conversando sin empezar de cero y, en los viajes en grupo, busca un itinerario equilibrado entre los gustos de todos.
 
-**Job to be done.** *Cuando organizo una escapada con mis amigos, quiero proponer un plan que encaje con lo que le gusta a cada uno y con lo que puede gastar, para cerrar el viaje rápido y sin discusiones.*
+**Job to be done.** *Cuando quiero organizar un viaje, quiero obtener un plan completo que se ajuste a lo que me gusta a mí y a quienes viajan conmigo, para no pasar horas buscando información en muchas herramientas distintas.*
 
-**Estado de la evidencia.** El problema y el usuario son, por ahora, hipótesis del equipo basadas en experiencias propias organizando viajes en grupo. Todavía no los hemos contrastado con usuarios reales (ver apartado 4.6).
+**Estado de la evidencia.** El problema y el usuario son, por ahora, hipótesis del equipo basadas en experiencias propias organizando viajes. Todavía no los hemos contrastado con usuarios reales (ver apartado 4.6).
 
 ### 4.3 Uso y valor
 
-**Situación de uso.** Andrés quiere organizar con cuatro amigos un fin de semana largo en una ciudad europea. Crea el viaje en la aplicación y comparte un enlace con el grupo. Cada amigo marca sus intereses (museos, gastronomía, vida nocturna, naturaleza), su presupuesto máximo y si prefiere un ritmo tranquilo o intenso. Con estas respuestas, la aplicación propone un itinerario de tres días con actividades agrupadas por zonas para reducir desplazamientos, indica qué intereses de cada persona quedan cubiertos y estima el precio medio del alojamiento en los barrios más convenientes. Además, como la previsión indica lluvia el sábado, sugiere cambiar la excursión al aire libre por un museo.
+**Situación de uso.** Un grupo de cinco amigos quiere viajar a Japón durante 10 días. Les interesa la cultura japonesa, los videojuegos, la gastronomía y visitar lugares poco turísticos, con un presupuesto de 1.500 € por persona. Uno de ellos crea el viaje en la aplicación, escribe estas preferencias e invita al resto. La IA genera una ruta organizada por días y horarios, con mapas y tiempos aproximados de desplazamiento, actividades, restaurantes y una estimación del presupuesto. Como a un participante le interesan los museos y a otro la naturaleza, la IA busca un itinerario equilibrado entre ambos. Después, el grupo vota entre dos excursiones y uno de ellos pide «busca actividades más económicas para el tercer día». Finalmente, durante el viaje empieza a llover y la aplicación propone cambiar la ruta por actividades de interior.
 
-**Valor.** Andrés obtiene en pocos minutos una propuesta que puede compartir con el grupo, en lugar de pasar varias tardes buscando información. Además, como cada persona ve qué parte del plan responde a sus preferencias, es más fácil llegar a un acuerdo.
+**Valor.** El grupo obtiene en pocos minutos una propuesta completa que puede ajustar conversando, en lugar de dedicar varias tardes a buscar información en distintas herramientas. Además, todos ven el mismo itinerario, pueden opinar sobre él y saben en todo momento cuánto han gastado.
 
-**Hipótesis de valor.** Un itinerario que combina de forma explícita las preferencias de cada participante reduce el tiempo de organización y facilita el acuerdo del grupo frente a planificar con el chat y búsquedas manuales.
+**Hipótesis de valor.** Una aplicación que genera y adapta el plan de viaje a partir de las preferencias de todos reduce el tiempo de organización y facilita los acuerdos frente a planificar con varias herramientas y el chat del grupo.
 
 ### 4.4 Datos
 
-**Información necesaria.** Puntos de interés de la ciudad (tipo, ubicación y horarios), precios de alojamiento por zona, previsión meteorológica y descripciones de los lugares para que el asistente pueda explicar sus propuestas. Además, las preferencias de los participantes, que se recogerán en la propia aplicación.
+**Información necesaria.** Lugares, actividades y restaurantes de cada destino con su ubicación; tiempos de desplazamiento; previsión meteorológica; precios y disponibilidad de alojamientos y transportes; y las preferencias y gastos de los usuarios, que se generarán en la propia aplicación.
 
 | Fuente | Contenido | Estado del acceso | Condiciones de uso y restricciones |
 |---|---|---|---|
-| [OpenStreetMap](https://www.openstreetmap.org/copyright) (vía Overpass API) | Puntos de interés con categoría, ubicación y, en algunos casos, horarios | **Hipótesis.** Pendiente de descarga de prueba | Licencia ODbL: uso permitido citando la fuente. Los horarios y categorías pueden estar incompletos |
-| [Inside Airbnb](https://insideairbnb.com/get-the-data/) | Anuncios de alojamiento por ciudad con precio, barrio, capacidad y valoraciones | **Hipótesis.** Pendiente de descarga | Confirmar licencia y ciudades disponibles. Los precios son de anuncios, no de reservas reales |
-| [Open-Meteo](https://open-meteo.com/) | Previsión meteorológica diaria y datos históricos | **Hipótesis.** Pendiente de prueba de la API | Gratuita para uso no comercial; confirmar condiciones y límites de uso |
-| [Wikivoyage](https://www.wikivoyage.org/) | Guías de viaje por ciudad con descripciones de barrios y lugares | **Hipótesis.** Pendiente de descarga | Licencia CC BY-SA: permite reutilizar el contenido citando la fuente |
-| Preferencias de los usuarios | Intereses, presupuesto y ritmo de cada participante | Se generarán en la aplicación | Datos personales mínimos; no se pedirá información identificativa más allá de un alias |
+| [Google Maps Platform](https://developers.google.com/maps) o [Mapbox](https://www.mapbox.com/) | Mapas, lugares, restaurantes y tiempos de desplazamiento | **Hipótesis.** Pendiente de crear una clave de API y probarla | Ambas ofrecen un uso gratuito limitado y de pago a partir de cierto volumen; revisar las condiciones de uso y almacenamiento de los datos |
+| [Open-Meteo](https://open-meteo.com/) | Previsión meteorológica diaria | **Hipótesis.** Pendiente de prueba de la API | Gratuita para uso no comercial. Las previsiones a largo plazo son menos fiables que las de los próximos días |
+| APIs de proveedores turísticos (vuelos, hoteles y transporte) | Precios, horarios y disponibilidad | **Hipótesis.** Proveedores por identificar | Suelen requerir registro como empresa, acuerdos comerciales o pago. Es la fuente con más incertidumbre |
+| Guías de viaje para el sistema RAG (por ejemplo, [Wikivoyage](https://www.wikivoyage.org/)) | Información sobre destinos, barrios y lugares | **Hipótesis.** Pendiente de descarga | Licencia CC BY-SA en el caso de Wikivoyage: permite reutilizar el contenido citando la fuente |
+| Datos de los usuarios | Preferencias, itinerarios, votaciones y gastos del grupo | Se generarán en la aplicación | Datos personales; se almacenarán con las medidas de protección adecuadas |
 
-**Privacidad.** La aplicación solo necesita un alias y las preferencias de viaje de cada participante. No se almacenarán datos de pago ni de ubicación en tiempo real.
+**Privacidad.** La aplicación guardará preferencias, itinerarios y gastos de los participantes. Para el MVP solo se pedirá un alias y un correo para invitar al grupo, y no se almacenarán datos de pago.
 
 ### 4.5 Primera versión o MVP
 
-**Usuario y tarea principal.** El organizador de una escapada en grupo que quiere obtener una propuesta de itinerario que tenga en cuenta las preferencias de todos.
+**Usuario y tarea principal.** Una persona que organiza un viaje en grupo y quiere obtener un plan completo que tenga en cuenta las preferencias de todos.
 
-**Qué mostraríamos funcionando.** Una aplicación web, limitada a una sola ciudad, en la que:
+**Qué mostraríamos funcionando.**
 
-1. El organizador crea un viaje (fechas y número de días) y comparte un enlace con el grupo.
-2. Cada participante completa un formulario corto con sus intereses, presupuesto y ritmo de viaje.
-3. El sistema genera un itinerario por días, con actividades agrupadas por zonas y un mapa.
-4. Se muestra qué intereses de cada participante cubre el plan y una estimación del coste de alojamiento por barrio.
-5. Si la previsión indica lluvia para algún día, se proponen alternativas de interior.
+1. **Planificador de viajes con IA.** El usuario escribe en lenguaje natural lo que quiere hacer y la IA genera un itinerario por días y horarios, con mapa y tiempos de desplazamiento. El usuario puede modificarlo conversando, sin empezar de cero.
+2. **Organización en grupo.** Un espacio compartido en el que se invita a los participantes, cada uno indica sus preferencias y la IA busca puntos en común entre todos.
+3. **Meteorología inteligente.** Relación entre la previsión y las actividades programadas, con alternativas cuando el tiempo afecta al plan.
+4. **Presupuesto.** Estimación del coste del viaje y control del presupuesto restante.
 
-**Qué queda fuera por ahora.** La búsqueda y reserva de vuelos, hoteles y transporte; los viajes a varias ciudades; la gestión de gastos compartidos; las votaciones dentro del grupo; y el asistente durante el viaje. La modificación del itinerario conversando con un LLM se incorporaría en la actividad 6.
+**Tecnologías previstas.** Flutter o React para el frontend; Python y FastAPI para el backend; PostgreSQL como base de datos; una API de LLM con RAG; Google Maps Platform o Mapbox para los mapas; Open-Meteo para la meteorología; y APIs de proveedores turísticos para vuelos y hoteles.
+
+**Qué queda fuera por ahora.** El buscador integrado de vuelos, hoteles y transportes con precios reales (depende del acceso a las APIs de los proveedores), la gestión detallada de gastos compartidos y el asistente personal durante el viaje. Estas funciones forman parte de la idea completa y se incorporarían en versiones posteriores.
 
 **Criterio de éxito.**
 
 | Nivel | Pregunta | Evidencia esperada |
 |---|---|---|
-| Producto | ¿Resuelve un problema relevante para el usuario? | Al menos 3 de 5 organizadores de prueba usarían la propuesta como punto de partida en lugar de empezar desde cero |
-| Experiencia | ¿Lo entiende y sabe cuándo confiar en él? | Los participantes entienden por qué se ha elegido cada actividad y qué preferencias cubre |
-| IA/Data | ¿El sistema funciona lo suficiente para este uso? | Los itinerarios cubren las preferencias de todos los participantes de forma equilibrada y el modelo de precios mejora a un modelo base (mediana por barrio) |
+| Producto | ¿Resuelve un problema relevante para el usuario? | Al menos 3 de 5 organizadores de prueba usarían el plan generado como punto de partida en lugar de empezar desde cero |
+| Experiencia | ¿Lo entiende y sabe cuándo confiar en él? | Los usuarios consiguen modificar el itinerario conversando y entienden qué preferencias de cada participante cubre el plan |
+| IA/Data | ¿El sistema funciona lo suficiente para este uso? | Los itinerarios generados son realistas (lugares existentes, horarios y desplazamientos coherentes) y se ajustan al presupuesto indicado en un conjunto de casos de prueba |
 
 ### 4.6 Viabilidad y dudas
 
-**Principal incertidumbre.** Si existe un componente de Data Science suficiente más allá de generar itinerarios con un LLM. Un asistente general ya puede proponer un viaje, por lo que el valor diferencial debe estar en combinar las preferencias del grupo y en estimaciones basadas en datos reales.
+**Principal incertidumbre.** El acceso a datos reales de precios y disponibilidad. La IA por sí sola no conoce la disponibilidad ni los precios actualizados, por lo que los resultados reales dependen de integrar APIs de proveedores externos, que suelen tener acceso restringido o de pago.
 
 **Qué necesitamos comprobar.**
 
-- La cobertura y calidad de los puntos de interés de OpenStreetMap para la ciudad elegida, especialmente categorías y horarios.
-- La disponibilidad de datos de Inside Airbnb para esa ciudad y sus condiciones de uso.
-- Que la combinación de preferencias puede plantearse como un problema de recomendación o de optimización evaluable con métricas.
+- Las condiciones de acceso y el coste de Google Maps Platform o Mapbox, y de al menos una API de vuelos u hoteles.
+- Que la IA genera itinerarios realistas y sin lugares o datos inventados cuando se apoya en datos reales mediante RAG.
+- Qué parte del producto permite desarrollar un modelo de Machine Learning propio para la actividad 4, por ejemplo la recomendación de actividades según las preferencias del grupo o la estimación del presupuesto.
 
-**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 5–8 personas que hayan organizado un viaje en grupo recientemente, preguntando cómo lo planificaron, cuánto tiempo les llevó y qué fue lo más difícil. De esta forma, comprobaremos si el problema existe y si es relevante. Más adelante, cuando la aplicación esté disponible, haremos una prueba de usabilidad con grupos reales.
+**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 5–8 personas que hayan organizado un viaje recientemente, preferiblemente en grupo, preguntando cómo lo planificaron, qué herramientas usaron, cuánto tiempo les llevó y qué fue lo más difícil. De esta forma, comprobaremos si el problema existe y si es relevante. Más adelante, cuando la aplicación esté disponible, haremos una prueba de usabilidad con usuarios reales.
 
 **Riesgos identificados.**
 
-- **Diferenciación.** Existen muchas aplicaciones de viajes y asistentes de IA generales. Si la propuesta no mejora claramente lo que ya ofrecen, el producto tendrá poco valor.
-- **Calidad de los datos abiertos.** Los datos de OpenStreetMap pueden tener categorías u horarios incompletos, lo que afectaría a la calidad del itinerario.
-- **Evaluación del itinerario.** No existe una métrica única para valorar si un plan es bueno. Será necesario definir criterios medibles (cobertura de preferencias, distancias, coste) y complementarlos con la opinión de los usuarios.
-- **Alcance.** La idea original incluye muchas funciones. El riesgo principal es intentar construirlas todas y no terminar ninguna con calidad.
+- **Dependencia de APIs externas.** Sin acceso a precios y disponibilidad reales, parte de las funciones solo podrían mostrarse con datos de ejemplo.
+- **Información inventada por la IA.** El LLM podría proponer lugares, horarios o precios que no existen. Las propuestas deben apoyarse en datos verificados y citar su origen.
+- **Fiabilidad de la meteorología.** Las previsiones a largo plazo no son igual de fiables que las de los próximos días, por lo que las alternativas por mal tiempo serán más útiles cerca de la fecha del viaje.
+- **Diferenciación.** Existen aplicaciones de viajes y asistentes de IA generales que ya generan itinerarios. El valor diferencial debe estar en la organización en grupo y en la adaptación continua del plan.
+- **Alcance.** La idea completa incluye muchas funciones, por lo que será necesario priorizar para terminar el MVP con calidad.
 
-**Encaje con el máster.** El proyecto permite trabajar la adquisición de datos abiertos mediante APIs (actividad 1), el modelo de datos de viajes, participantes y lugares en SQL (actividad 2), un análisis estadístico de precios por barrio (actividad 3), un experimento con modelo base y modelos de predicción de precio o de recomendación (actividad 4), la interfaz con mapa e itinerario (actividad 5) y un asistente conversacional con RAG sobre guías de viaje (actividad 6).
+**Encaje con el máster.** El proyecto permite trabajar la adquisición de datos mediante APIs (actividad 1), el modelo de datos de viajes, participantes, actividades y gastos en PostgreSQL (actividad 2), un análisis estadístico de las preferencias o del presupuesto (actividad 3), un modelo de recomendación de actividades (actividad 4), la interfaz con mapa e itinerario (actividad 5), el planificador conversacional con LLM y RAG (actividad 6), el despliegue del backend con FastAPI (actividad 7) y la arquitectura Cloud de la aplicación (actividad 8).
 
 ---
 
-## 5. Idea 3. *[Nombre provisional]*
+## 5. Idea 3. Sistema de IA para optimización energética y mantenimiento predictivo industrial
 
 ### 5.1 Título y descripción
 
-*[Nombre provisional y dos o tres frases sobre en qué consiste el producto.]*
+Plataforma basada en Inteligencia Artificial para el sector industrial que analiza las series temporales de telemetría de la maquinaria para modelar el consumo energético, detectar anomalías de forma automática y asistir a los ingenieros de planta en la resolución de incidencias. El sistema combina modelos de Machine Learning para predecir la demanda de energía y detectar ineficiencias con un asistente basado en IA generativa (RAG) que interpreta las anomalías a partir de los manuales de mantenimiento. Los resultados se presentan en cuadros de mando interactivos y se ofrecen a través de una API predictiva.
 
 ### 5.2 Problema y usuario
 
-**Usuario.** *[Quién tiene el problema. Ser lo más concreto posible: perfil, contexto, situación.]*
+**Usuario.** Ingenieros de planta y personal de mantenimiento de una instalación industrial con maquinaria pesada y alto consumo eléctrico.
 
-**Necesidad.** *[Qué necesita conseguir.]*
+**Necesidad.** Anticipar la demanda de energía de la planta y detectar a tiempo comportamientos anómalos en el consumo que indiquen ineficiencias o el inicio de un fallo mecánico.
 
-**Solución actual.** *[Cómo lo resuelve hoy.]*
+**Solución actual.** El mantenimiento suele ser correctivo: se actúa cuando el fallo ya se ha producido. El consumo energético se controla principalmente a través de la factura o de lecturas de los contadores, y ante una incidencia el técnico consulta los manuales de mantenimiento o recurre a su experiencia.
 
-**Dificultad.** *[Qué le cuesta o qué no funciona de la solución actual.]*
+**Dificultad.** El consumo energético es uno de los principales costes operativos (OPEX) de una planta de fabricación y tiene un impacto directo en la huella de carbono y en el cumplimiento normativo. Sin embargo, las lecturas de los sensores se almacenan de forma pasiva y no se transforman en información para actuar. Por este motivo, las ineficiencias y los primeros síntomas de fallo se detectan tarde.
 
-**Mejora propuesta.** *[Qué cambiaría con el producto.]*
+**Mejora propuesta.** Pasar de un mantenimiento correctivo a uno predictivo, convirtiendo las lecturas de los sensores en predicciones, alertas y recomendaciones que el personal de planta pueda usar para decidir.
 
-**Job to be done.** *[Cuando [situación], quiero [progreso que busca el usuario], para [resultado].]*
+**Job to be done.** *Cuando superviso el funcionamiento de la planta, quiero anticipar el consumo y saber si algún equipo se está comportando de forma anómala, para actuar antes de que se produzca una avería o un sobrecoste energético.*
 
-**Estado de la evidencia.** *[Indicar si el problema es una hipótesis del equipo o si ya se ha contrastado con usuarios.]*
+**Estado de la evidencia.** El problema se basa en la experiencia profesional de un integrante del equipo como ingeniero aeroespacial e industrial. Todavía no lo hemos contrastado con otros profesionales del sector (ver apartado 5.6).
 
 ### 5.3 Uso y valor
 
-**Situación de uso.** *[Ejemplo concreto: qué necesita hacer el usuario, qué recibe del producto y cómo le ayuda a actuar o decidir.]*
+**Situación de uso.** Javier es ingeniero de mantenimiento en una planta de fabricación. Al empezar su turno abre el cuadro de mando y consulta la previsión de consumo de energía activa para las próximas horas. Después ve una alerta: durante la noche, con la planta en reposo, se registró un pico de energía reactiva que se sale del comportamiento habitual. Finalmente, pregunta al asistente qué puede indicar esa anomalía. El asistente le responde en lenguaje natural con las posibles causas y el protocolo de revisión recogido en el manual de mantenimiento de la planta.
 
-**Valor.** *[Qué gana el usuario frente a la solución actual.]*
+**Valor.** Javier detecta el problema el mismo día, sin esperar a la factura ni a que el fallo sea evidente. Con la información del panel y del asistente decide revisar el equipo afectado. De esta forma, puede evitar una avería, reducir el consumo innecesario y documentar la incidencia.
 
-**Hipótesis de valor.** *[Una frase que se pueda comprobar con usuarios.]*
+**Hipótesis de valor.** Un sistema que predice el consumo, detecta anomalías y las explica a partir de la documentación técnica permite al personal de planta actuar antes y con más información que con el mantenimiento correctivo.
 
 ### 5.4 Datos
 
-**Información necesaria.** *[Qué datos y para qué.]*
+**Información necesaria.** Series temporales de consumo energético y variables de estado de una planta industrial, junto con la documentación técnica de mantenimiento que utilizará el asistente.
 
 | Fuente | Contenido | Estado del acceso | Condiciones de uso y restricciones |
 |---|---|---|---|
-| *[Nombre y enlace]* | | **Confirmado** / **Hipótesis** | |
-| *[Nombre y enlace]* | | **Confirmado** / **Hipótesis** | |
+| [Steel Industry Energy Consumption](https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption) (UCI Machine Learning Repository) | 35.040 registros a intervalos de 15 minutos durante un año, procedentes de la planta siderúrgica DAEWOO Steel Co. Ltd (Gwangyang, Corea del Sur). Variables: energía activa (kWh), energía reactiva (kVarh), factor de potencia, emisiones de CO₂, intensidad de carga (Light/Medium/Maximum) y variables temporales | **Confirmado.** Descarga pública sin registro | Licencia CC BY 4.0: permite el uso y la transformación citando la fuente |
+| Manuales de mantenimiento y documentación técnica | Protocolos de mantenimiento y documentación de equipos para el asistente RAG | **Hipótesis.** Documentos por seleccionar | Revisar las condiciones de reutilización de cada documento |
 
-**Privacidad.** *[Datos personales o sensibles y cómo se protegerán.]*
+**Privacidad y confidencialidad.** El dataset no contiene datos personales. Si en algún momento se incorporan datos o manuales de una empresa, se guardarán fuera del repositorio.
 
 ### 5.5 Primera versión o MVP
 
-**Usuario y tarea principal.** *[Un usuario y una tarea.]*
+**Usuario y tarea principal.** El ingeniero de planta que quiere conocer la demanda prevista de energía y detectar anomalías en el consumo para decidir qué revisar.
 
-**Qué mostraríamos funcionando.** *[Pocas funciones, en orden de uso.]*
+**Qué mostraríamos funcionando.**
 
-**Qué queda fuera por ahora.** *[Alcance excluido.]*
+1. **Predicción de la demanda.** Un modelo supervisado que predice la energía activa (kWh) a corto plazo en función de las variables operativas y la carga de trabajo de la instalación.
+2. **Detección de anomalías.** Un modelo no supervisado que identifica desviaciones y comportamientos anómalos en el consumo, como picos de energía reactiva en reposo.
+3. **Asistente documental.** Un sistema RAG que interpreta las anomalías detectadas y responde en lenguaje natural a partir de los manuales de mantenimiento.
+4. **Cuadros de mando.** Una interfaz en Power BI y Plotly que cruza las predicciones y las anomalías con indicadores de gestión.
+5. **API predictiva.** Un servicio que permite consultar las predicciones de los modelos.
+
+**Tecnologías previstas.** Python, Pandas y Scikit-learn para el procesamiento; XGBoost y LightGBM para la predicción; Isolation Forest para la detección de anomalías; LangChain, una API de LLM y FAISS para el asistente; FastAPI, Docker y AWS para el despliegue; y Power BI y Plotly para la visualización.
+
+**Qué queda fuera por ahora.** La conexión con los sensores de una planta en funcionamiento y la integración con los sistemas de gestión de mantenimiento de una empresa. El MVP trabajará con el dataset histórico, simulando la llegada de nuevas lecturas.
 
 **Criterio de éxito.**
 
 | Nivel | Pregunta | Evidencia esperada |
 |---|---|---|
-| Producto | ¿Resuelve un problema relevante para el usuario? | *[...]* |
-| Experiencia | ¿Lo entiende y sabe cuándo confiar en él? | *[...]* |
-| IA/Data | ¿El modelo o sistema funciona lo suficiente para este uso? | *[...]* |
+| Producto | ¿Resuelve un problema relevante para el usuario? | Al menos 3 de 5 profesionales del sector consultados consideran que las predicciones y las alertas les ayudarían a anticipar incidencias |
+| Experiencia | ¿Lo entiende y sabe cuándo confiar en él? | Los usuarios entienden por qué se genera cada alerta y en qué documentación se basa la respuesta del asistente |
+| IA/Data | ¿Los modelos funcionan lo suficiente para este uso? | El modelo de predicción mejora el error (RMSE y MAE) de un modelo base, y el detector identifica las anomalías con un número de falsas alarmas aceptable |
 
 ### 5.6 Viabilidad y dudas
 
-**Principal incertidumbre.** *[La duda más importante.]*
+**Principal incertidumbre.** Cómo evaluar la detección de anomalías. El dataset no indica qué periodos corresponden a fallos o ineficiencias reales, por lo que no es posible medir directamente si el detector acierta.
 
-**Qué necesitamos comprobar.** *[Pasos concretos para resolverla.]*
+**Qué necesitamos comprobar.**
 
-**Cómo validaremos el problema y el valor.** *[Entrevistas, prototipo, Wizard of Oz u otra técnica.]*
+- La calidad del dataset: valores nulos, valores atípicos y estacionalidad de la serie.
+- Una forma de validar el detector, por ejemplo insertando anomalías simuladas en la serie y midiendo cuántas detecta, junto con la revisión experta de las anomalías encontradas.
+- La disponibilidad de manuales de mantenimiento públicos y reutilizables para el asistente RAG.
+- Que Power BI es válido para la actividad 5, ya que el enunciado pide una herramienta libre. Si no lo fuera, el cuadro de mando de esa actividad se construiría con Plotly.
 
-**Riesgos identificados.** *[Datos, técnica, uso, privacidad.]*
+**Cómo validaremos el problema y el valor.** Haremos entrevistas cortas a 5–8 profesionales de mantenimiento o gestión energética en la industria, preguntando por la última vez que detectaron un consumo anómalo o una avería: cómo lo descubrieron, cuánto tardaron y qué consecuencias tuvo. De esta forma, comprobaremos si el problema existe y si es relevante. Más adelante, cuando el cuadro de mando esté disponible, haremos una prueba de usabilidad con algunos de ellos.
 
----
+**Riesgos identificados.**
 
-## 6. Opción preferida
+- **Datos agregados de una sola planta.** El dataset mide el consumo de toda la planta y no de cada máquina, por lo que puede ser difícil relacionar una anomalía con un equipo concreto.
+- **Validación sin etiquetas.** Sin registros de fallos reales, la evaluación del detector dependerá de anomalías simuladas y de la revisión experta.
+- **Generalización.** Los modelos entrenados con una planta siderúrgica pueden no funcionar igual en otro tipo de industria.
+- **Respuestas del asistente.** El asistente podría dar explicaciones incorrectas. Las respuestas deben citar la documentación en la que se basan y presentarse como apoyo, no como diagnóstico.
 
-*[Indicar la idea preferida por el equipo y explicar por qué. Criterios sugeridos: importancia del problema para el usuario, acceso confirmado a los datos, posibilidad de validar el problema con usuarios reales, alcance del MVP y encaje con las actividades del máster. Las tres propuestas se mantienen para recibir feedback.]*
-
-## 7. Preguntas para el feedback
-
-*[Dudas concretas que el equipo quiere resolver con el profesorado. Por ejemplo, para la idea 1: ¿es razonable limitar el MVP a tres imperfecciones (acné, manchas y ojeras) o conviene incluir desde el inicio el tipo de piel?]*
+**Encaje con el máster.** Las fases del proyecto se corresponden con las actividades del máster: la limpieza, el estudio de la estacionalidad, la codificación cíclica de variables temporales y las variables retardadas (actividad 1); el modelo de datos de lecturas, predicciones y alertas (actividad 2); el análisis estadístico del consumo (actividad 3); la predicción de carga y el motor de anomalías (actividad 4); los cuadros de mando (actividad 5); el copiloto industrial con RAG (actividad 6); la API, el empaquetado de los modelos y el despliegue (actividad 7); y la arquitectura Cloud en AWS (actividad 8).
