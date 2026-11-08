@@ -1,7 +1,7 @@
 # Actividad 0. Equipos, ideas de producto y repositorio
 
 **Estado del proyecto:** Exploración de ideas
-**Repositorio:** [enlace al repositorio]([https://github.com/lesliemosquera96-netizen/TFM_Evolve])
+**Repositorio:** [enlace al repositorio](https://github.com/lesliemosquera96-netizen/TFM_Evolve)
 
 ---
 
